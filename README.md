@@ -15,3 +15,13 @@ build an AI voice assistant with Python. This assistant will have aging capabili
 - Also understand livekit architecture before we get started to have an idea of how it's going to work from it's [documentation](https://docs.livekit.io/agents/overview/)
   - `TODO`: understand what's `WebRTC` which is between our clients & livekitCloud & our Backend(Agent) & `WebSocket`.
   - `we will be using REALTIME API (OPEN AI) which allows us to have extremely low latency in the responses.`
+
+### python backend setup
+
+- create a `requirements.txt` file to install the neccessary dependencies by including the libraries we need in there.
+- create a virtual environment and then we install those dependencies in requirements.txt file.(recommended)
+  - `python -m venv ai`
+  - Activate the venv - `source ai/Scripts/activate`
+  - Then install the dependencies - `pip install -r ./requirements.txt`
+- uvicorn - to run our flask server in this project.
+- later we will try to do the same using `FASTAPI` - `TODO`
