@@ -25,3 +25,14 @@ build an AI voice assistant with Python. This assistant will have aging capabili
   - Then install the dependencies - `pip install -r ./requirements.txt`
 - uvicorn - to run our flask server in this project.
 - later we will try to do the same using `FASTAPI` - `TODO`
+
+### Building the voice assistant agent
+
+- let's create some files:
+  - `agent.py` - Entry point script
+  - `api.py` - specify some of the tools that our agent will be able to use.
+  - `db_driver.py` - which will handle managing our database & connecting to that for things like our vehicle information
+  - `prompts.py` - which will have prompts that we'll use for our AI agents to operate as we desire.
+  - In VS Code, you can check/set the Python interpreter:Press Ctrl+Shift+P (Windows)
+  - to run : we do -> `python .\agent.py dev` is how you run this in development mode
+  - since we don't have frontend now and to test this livekit provides this [playground](https://agents-playground.livekit.io/) - we can see voice output and our inputs and response from the assistant in the playground once the dev mode started. - cool
