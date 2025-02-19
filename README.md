@@ -59,3 +59,12 @@ build an AI voice assistant with Python. This assistant will have aging capabili
   - copied css styles of app , index , SimpleVoiceAssistant from [twtgithubrepo](https://github.com/techwithtim/LiveKit-AI-Car-Call-Centre/tree/main/frontend/src)
   - to run locally - `npm run dev`
 - Now we make new environment file to connect to the liveKitRoom & we need a token as well
+
+### LiveKit Token Authentication & Issuing
+
+we need to write our own server & issue the tokens to our frontend , it gives us more control over the tokens and allowing people to join different rooms , we will do that from our backend.
+
+- if we send a request to getToken , it will generate a random room name for us unless we specify & it will allow us to connect from our frontend
+
+- from frontend let's setup api proxy
+- using fastapi - to run the server.py - `uvicorn server:app --host 0.0.0.0 --port 5001 --reload`
