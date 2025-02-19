@@ -36,3 +36,9 @@ build an AI voice assistant with Python. This assistant will have aging capabili
   - In VS Code, you can check/set the Python interpreter:Press Ctrl+Shift+P (Windows)
   - to run : we do -> `python .\agent.py dev` is how you run this in development mode
   - since we don't have frontend now and to test this livekit provides this [playground](https://agents-playground.livekit.io/) - we can see voice output and our inputs and response from the assistant in the playground once the dev mode started. - cool
+
+### Adding Agent tools & database
+
+- let's start providing tools that agent can use.
+- we want to save VIN's or lookup VINs or create a new profile.
+- connect the db_driver to api
