@@ -6,7 +6,7 @@ from livekit.agents.multimodal import MultimodalAgent
 from livekit.plugins import openai
 from dotenv import load_dotenv
 from api import AssistantFunc
-from prompts import INSTRUCTIONS, WELCOME_MESSAGE
+from prompts import INSTRUCTIONS, WELCOME_MESSAGE, LOOKUP_VIN_MESSAGE
 
 
 # to access various keys that we need from .env file.
@@ -42,8 +42,30 @@ async def entrypoint(ctx: JobContext):
     # tell the assistant to do is respond to that message.
     session.response.create()  # it will read the above conversation and respond to it(speak out to us)
 
-    # wait for the assistant to finish talking
-    # await assistant.wait()
+    @session.on("user_speech_committed")
+    def on_user_speech_committed(msg: llm.ChatMessage):
+        if isinstance(msg.content, list):
+            # sometimes msgs comes in as a list so we join them as below
+            msg.content = "\n".join(
+                "[image]" if isinstance(x, llm.ChatImage) else x for x in msg
+            )
+
+        if assistant_fnc.has_car():  # check if we have a car
+            handle_query(msg)
+        else:
+            find_profile(msg)
+
+    def find_profile(msg: llm.ChatMessage):
+        session.conversation.item.create(
+            llm.ChatMessage(role="system", content=LOOKUP_VIN_MESSAGE(msg))
+        )
+        session.response.create()
+
+    def handle_query(msg: llm.ChatMessage):
+        session.conversation.item.create(
+            llm.ChatMessage(role="user", content=msg.content)
+        )
+        session.response.create()
 
 
 # call the entry point

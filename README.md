@@ -42,3 +42,7 @@ build an AI voice assistant with Python. This assistant will have aging capabili
 - let's start providing tools that agent can use.
 - we want to save VIN's or lookup VINs or create a new profile.
 - connect the db_driver to api
+
+### designing the agent decision tree
+
+- until above we were able to add tools for the llm to call based on user request but it's doesn't know how to handle or make a decision like if there's no profile it needs to ask us to provide details and if there's one it should go for what it needs to do for us.
