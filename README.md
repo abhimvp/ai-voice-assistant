@@ -48,3 +48,14 @@ build an AI voice assistant with Python. This assistant will have aging capabili
 - until above we were able to add tools for the llm to call based on user request but it's doesn't know how to handle or make a decision like if there's no profile it needs to ask us to provide details and if there's one it should go for what it needs to do for us.
 
 ### Frontend Integration
+
+- we use `vite` to create our frontend `react` as follows:
+  - npm create vite@latest frontend -- --template react
+  - refer this docs from [livekit](https://docs.livekit.io/agents/openai/client-apps/) integrating with frontend [react](https://docs.livekit.io/home/quickstarts/react/)
+  - then `cd frontend`
+  - Do `npm install`
+  - then run this npm command as per reference doc `npm install @livekit/components-react @livekit/components-styles livekit-client --save`
+  - we will also get rid of public and assets folders
+  - copied css styles of app , index , SimpleVoiceAssistant from [twtgithubrepo](https://github.com/techwithtim/LiveKit-AI-Car-Call-Centre/tree/main/frontend/src)
+  - to run locally - `npm run dev`
+- Now we make new environment file to connect to the liveKitRoom & we need a token as well
